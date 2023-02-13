@@ -6,10 +6,12 @@
 
 ## Setup
 
-1. Create a new file `.env.local` in the project root and add inside your 8th Wall key such as:
+1. Create a new file `.env.local` in the project root and add inside your 8th Wall key, Immersal developer token and a map id , such as:
 
 ```
 VITE_8THWALL_APP_KEY=xxxxxxxxxxxxxxxxxxxxxxxxx
+VITE_IMMERSAL_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxx
+VITE_MAP_ID=xxxxx
 ```
 
 2. Run the following commands:

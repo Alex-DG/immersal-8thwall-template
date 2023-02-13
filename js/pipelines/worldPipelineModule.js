@@ -1,13 +1,13 @@
-import Box from '../classes/Box'
+import Layout from '../classes/Layout'
+import Immersal from '../classes/Immersal'
 
 export const initWorldPipelineModule = () => {
   const init = () => {
-    Box.init()
+    Layout.init()
+    Immersal.init()
   }
 
-  const render = () => {
-    Box?.update()
-  }
+  const render = () => {}
 
   return {
     name: 'world-content',
