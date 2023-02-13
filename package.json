@@ -1,0 +1,21 @@
+{
+  "name": "immersal-8thwall-template",
+  "description": "Minimal reusable template project using Immersal AR and 8th Wall with Three.js",
+  "version": "0.0.0",
+  "type": "module",
+  "author": "Alexandre Di Guida",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "1.0.1",
+    "vite-plugin-glsl": "1.1.2",
+    "vite": "4.1.0"
+  },
+  "dependencies": {
+    "three": "0.146.0"
+  }
+}
