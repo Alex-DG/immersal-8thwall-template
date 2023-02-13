@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 
 import Layout from './Layout'
+import Model from './Model'
 
 /**
  * Immersal API Documentation:
@@ -86,17 +87,7 @@ class Immersal {
 
       m.decompose(position, rotation, scale)
 
-      console.log('-------------------------------------------------')
-      console.log('✅', '[ LOCALIZATION SUCCESS ]')
-      console.log(
-        '> Use the position, rotation and scale to place your 3D elements in your scene:'
-      )
-      console.log({
-        position,
-        rotation,
-        scale,
-      })
-      console.log('-------------------------------------------------')
+      Model.reveal(position, rotation, scale)
     } else {
       alert('Localization failed.\nPlease try again')
     }

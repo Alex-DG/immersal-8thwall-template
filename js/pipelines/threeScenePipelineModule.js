@@ -20,6 +20,10 @@ export const initThreeScenePipelineModule = () => {
       antialias: true,
     })
     renderer.autoClear = false
+    renderer.physicallyCorrectLights = true
+    renderer.outputEncoding = THREE.sRGBEncoding
+    renderer.toneMapping = THREE.CineonToneMapping
+    renderer.toneMappingExposure = 1.71
     renderer.setSize(canvasWidth, canvasHeight)
 
     // XR Scene Data
