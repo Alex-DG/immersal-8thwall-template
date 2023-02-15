@@ -59,14 +59,17 @@ class Immersal {
         -data.r01,
         -data.r02,
         data.px,
+
         data.r10,
         -data.r11,
         -data.r12,
         data.py,
+
         data.r20,
         -data.r21,
         -data.r22,
         data.pz,
+
         0,
         0,
         0,
@@ -75,8 +78,8 @@ class Immersal {
 
       const { camera } = XR8.Threejs.xrScene()
 
-      const m = new THREE.Matrix4().multiplyMatrices(
-        camera.matrixWorld.clone(),
+      const resultMatrix = new THREE.Matrix4().multiplyMatrices(
+        camera.matrixWorld,
         cloudSpace.invert()
       )
 
@@ -85,7 +88,9 @@ class Immersal {
       const rotation = new THREE.Quaternion()
       const scale = new THREE.Vector3()
 
-      m.decompose(position, rotation, scale)
+      resultMatrix.decompose(position, rotation, scale)
+
+      console.log({ position, rotation, scale })
 
       Model.reveal(position, rotation, scale)
     } else {
@@ -103,19 +108,19 @@ class Immersal {
     try {
       const b64 = await XR8.CanvasScreenshot.takeScreenshot()
       const token = import.meta.env.VITE_IMMERSAL_TOKEN
-      const mapId = import.meta.env.VITE_MAP_ID
+      const mapId = import.meta.env.VITE_MAP_ID_1
       const mapIds = [{ id: Number(mapId) }]
 
-      const { cameraIntrinsics } = XR8.Threejs.xrScene()
+      const { principalOffset, focalLength } = XR8.Threejs.xrScene()
 
       const params = {
         b64,
         token,
         mapIds,
-        fx: cameraIntrinsics.fx,
-        fy: cameraIntrinsics.fy,
-        ox: cameraIntrinsics.ox,
-        oy: cameraIntrinsics.oy,
+        fx: focalLength.x,
+        fy: focalLength.y,
+        ox: principalOffset.x,
+        oy: principalOffset.y,
       }
 
       const url = `${this.baseUrl}${this.endpoint}`

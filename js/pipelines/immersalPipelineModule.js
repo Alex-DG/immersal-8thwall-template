@@ -2,35 +2,44 @@ export const initImmersalPipelineModule = () => {
   return {
     name: 'immersal',
 
+    // https://www.8thwall.com/docs/web/#onprocesscpu
     onProcessCpu: ({ processGpuResult }) => {
-      const { camerapixelarray } = processGpuResult
-      if (!camerapixelarray || !camerapixelarray.pixels) return
+      const { gltexturerenderer } = processGpuResult
 
-      const { rows, cols, pixels } = camerapixelarray
-      return { rows, cols, pixels }
+      if (!gltexturerenderer || !gltexturerenderer?.viewport) return
+
+      const { viewport } = gltexturerenderer
+      return { viewport }
     },
 
-    onUpdate: ({ frameStartResult, processCpuResult }) => {
+    // https://www.8thwall.com/docs/web/#onupdate
+    onUpdate: ({ processCpuResult }) => {
       if (!processCpuResult.reality) return
 
-      const { rotation, position, intrinsics } = processCpuResult.reality
-      const { textureWidth, textureHeight } = frameStartResult
-      const { rows, cols, pixels } = processCpuResult.immersal
+      const { intrinsics } = processCpuResult.reality
+      const { viewport } = processCpuResult.immersal
+
+      const px = viewport.width * 0.5 * (1 - intrinsics[8]) + viewport.offsetX
+      const py = viewport.height * 0.5 * (1 - intrinsics[9]) + viewport.offsetY
+
+      // Principal point in pixels
+      const principalOffset = {
+        x: px,
+        y: py,
+      }
+
+      // const fX = viewport.width * 0.5 * intrinsics[0]
+      const fy = viewport.height * 0.5 * intrinsics[5]
+
+      // Focal lengths in pixels
+      const focalLength = {
+        x: fy,
+        y: fy,
+      }
 
       const xrScene = XR8.Threejs.xrScene()
-
-      const fy = 0.5 * intrinsics[5] * textureWidth
-      const cx = 0.5 * (intrinsics[8] + 1.0) * textureWidth
-      const cy = 0.5 * (intrinsics[9] + 1.0) * textureHeight
-
-      const intr = { fx: fy, fy: fy, ox: cx, oy: cy }
-
-      xrScene.videoWidth = cols
-      xrScene.videoHeight = rows
-      xrScene.pixelBuffer = pixels
-      xrScene.cameraIntrinsics = intr
-      xrScene.cameraPosition = position
-      xrScene.cameraRotation = rotation
+      xrScene.principalOffset = principalOffset
+      xrScene.focalLength = focalLength
     },
   }
 }
