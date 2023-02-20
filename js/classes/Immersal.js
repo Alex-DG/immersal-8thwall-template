@@ -111,16 +111,16 @@ class Immersal {
       const mapId = import.meta.env.VITE_MAP_ID_1
       const mapIds = [{ id: Number(mapId) }]
 
-      const { principalOffset, focalLength } = XR8.Threejs.xrScene()
+      const { principalPoint, focalLength } = XR8.Threejs.xrScene()
 
       const params = {
         b64,
         token,
         mapIds,
+        ox: principalPoint.x,
+        oy: principalPoint.y,
         fx: focalLength.x,
         fy: focalLength.y,
-        ox: principalOffset.x,
-        oy: principalOffset.y,
       }
 
       const url = `${this.baseUrl}${this.endpoint}`

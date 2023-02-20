@@ -5,7 +5,7 @@ import { initWorldPipelineModule } from './pipelines/worldPipelineModule'
 import { initImmersalPipelineModule } from './pipelines/immersalPipelineModule'
 
 const onxrloaded = () => {
-  XR8.XrController.configure({ scale: 'absolute' }) // Configures the processing performed by XrController. For the configuration see: https://www.8thwall.com/docs/web/#xr8xrcontroller
+  XR8.XrController.configure({ scale: 'absolute' }) // See: https://www.8thwall.com/docs/web/#xr8xrcontroller
 
   XR8.addCameraPipelineModule(XR8.CanvasScreenshot.pipelineModule()) // A CanvasScreenshot pipeline module that can be added via XR8.addCameraPipelineModule().
 
