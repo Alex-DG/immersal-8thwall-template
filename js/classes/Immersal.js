@@ -53,22 +53,40 @@ class Immersal {
     const data = await response.json()
 
     if (data.success) {
+      // The response is a projection matrix which can be used to extract
+      // the position and orientation of the device
+
+      // "px": 0.0, # camera X position
+      // "py": 0.0, # camera Y position
+      // "pz": 0.0, # camera Zposition
+      // "r00": 1.0, # camera orientation as a 3x3 matrix
+      // "r01": 0.0,
+      // "r02": 0.0,
+      // "r10": 0.0,
+      // "r11": 1.0,
+      // "r12": 0.0,
+      // "r20": 0.0,
+      // "r21": 0.0,
+      // "r22": 1.0,
+
+      // To make it work with our 3D scene we need to convert this data
+      // to a 4x4 Matrix before using it with our 3D camera matrix world
       const cloudSpace = new THREE.Matrix4()
       cloudSpace.set(
         data.r00,
         -data.r01,
         -data.r02,
-        data.px,
+        data.px, // camera x position
 
         data.r10,
         -data.r11,
         -data.r12,
-        data.py,
+        data.py, // camera y position
 
         data.r20,
         -data.r21,
         -data.r22,
-        data.pz,
+        data.pz, // camera z position
 
         0,
         0,
@@ -89,8 +107,6 @@ class Immersal {
       const scale = new THREE.Vector3()
 
       resultMatrix.decompose(position, rotation, scale)
-
-      console.log({ position, rotation, scale })
 
       Model.reveal(position, rotation, scale)
     } else {
