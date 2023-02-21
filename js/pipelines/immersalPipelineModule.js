@@ -18,7 +18,7 @@ export const initImmersalPipelineModule = () => {
 
       /**
 
-        < Intrinsics Matrix >
+        < Intrinsics: 3x3 Matrix >
 
         | fx    s   cx |
         | 0    fy   cy |
@@ -34,7 +34,7 @@ export const initImmersalPipelineModule = () => {
       const { viewport } = processCpuResult.immersal
 
       /**
-       * Principal point in pixels: central point of the viewport (2D image plane))
+       * Principal point in pixels: somewhere near the center of the image (2D image plane))
        */
 
       const ox = viewport.width * 0.5 * (1 - intrinsics[3]) + viewport.offsetX
@@ -46,7 +46,9 @@ export const initImmersalPipelineModule = () => {
       }
 
       /**
-       * Focal lengths in pixels: distance between the pinhole and the 2D image plane
+       * Focal lengths in pixels: distance between the projection center and the 2D image plane
+       *
+       * note: fx and fy are very equivalent one could be substitute by the other
        */
 
       // const fx = viewport.width * 0.5 * intrinsics[0]
