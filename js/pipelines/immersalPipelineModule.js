@@ -19,6 +19,7 @@ export const initImmersalPipelineModule = () => {
       /**
 
         < Intrinsics: 3x3 Matrix >
+           |-> describes the internal parameters of a camera and where is the camera in the 3D world
 
         | fx    s   cx |
         | 0    fy   cy |
