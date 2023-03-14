@@ -35,7 +35,8 @@ export const initImmersalPipelineModule = () => {
       const { viewport } = processCpuResult.immersal
 
       /**
-       * Principal point in pixels: somewhere near the center of the image (2D image plane))
+       * Principal point in pixels: Pixel of  your image through which the opatical axes of your camera passes,
+       * somewhere near the center of the image (2D image plane)
        */
 
       const ox = viewport.width * 0.5 * (1 - intrinsics[3]) + viewport.offsetX
@@ -47,7 +48,8 @@ export const initImmersalPipelineModule = () => {
       }
 
       /**
-       * Focal lengths in pixels: distance between the projection center and the 2D image plane
+       * Focal lengths in pixels: distance between the projection center of your lens and the image sensor,
+       * tells us the angle of view, how much of the scene will be captured
        *
        * note: fx and fy are very equivalent one could be substitute by the other
        */
