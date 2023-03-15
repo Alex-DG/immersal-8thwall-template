@@ -1,4 +1,4 @@
-# Immersal AR 8thWall Template
+# Prototype: Immersal AR + 8thWall Template
 
 ## Description
 
