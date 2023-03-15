@@ -8,7 +8,7 @@
 
 - Indoor: [living room](https://youtu.be/jEivuCRbyJ8)
 
-- Outdoor: [Akabane 1](https://twitter.com/Alex_dg_dev/status/1606191289334054912) [Akabane 2](https://www.youtube.com/shorts/ex6uKcpv-zo) [Shibuya 1](https://twitter.com/Alex_dg_dev/status/1611259886565994497) [Shibuya 2](https://twitter.com/Alex_dg_dev/status/1611260743672016897)
+- Outdoor: [Akabane 1](https://twitter.com/Alex_dg_dev/status/1606191289334054912) | [Akabane 2](https://www.youtube.com/shorts/ex6uKcpv-zo) | [Shibuya 1](https://twitter.com/Alex_dg_dev/status/1611259886565994497) | [Shibuya 2](https://twitter.com/Alex_dg_dev/status/1611260743672016897)
 
 
 ## Setup
