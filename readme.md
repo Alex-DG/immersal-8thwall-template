@@ -4,6 +4,13 @@
 
 - Minimal reusable template project using Immersal AR and 8th Wall with Three.js
 
+## Demos
+
+- Indoor: [link](https://youtu.be/jEivuCRbyJ8)
+
+- Outdoor: [Akabane 1](https://twitter.com/Alex_dg_dev/status/1606191289334054912) [Akabane 2]([link](https://www.youtube.com/shorts/ex6uKcpv-zo)) [Shibuya 1](https://twitter.com/Alex_dg_dev/status/1611259886565994497) [Shibuya 2](https://twitter.com/Alex_dg_dev/status/1611260743672016897)
+
+
 ## Setup
 
 1. Create a new file `.env.local` in the project root and add inside your 8th Wall key, Immersal developer token and a map id , such as:
