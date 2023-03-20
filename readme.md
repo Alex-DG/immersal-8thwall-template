@@ -21,7 +21,9 @@ VITE_IMMERSAL_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxx
 VITE_MAP_ID=xxxxx
 ```
 
-2. Run the following commands:
+2. In your 8th Wall project: do not forget to add your local ip address in the list of authorized domains within your 8th Wall Project in Hosting > Edit > add your local ip address
+
+3. Run the following commands:
 
 ```bash
 # Install dependencies (only the first time)
