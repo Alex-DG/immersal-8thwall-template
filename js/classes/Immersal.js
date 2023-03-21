@@ -124,7 +124,7 @@ class Immersal {
     try {
       const b64 = await XR8.CanvasScreenshot.takeScreenshot()
       const token = import.meta.env.VITE_IMMERSAL_TOKEN
-      const mapId = import.meta.env.VITE_MAP_ID_1
+      const mapId = import.meta.env.VITE_MAP_ID
       const mapIds = [{ id: Number(mapId) }]
 
       const { principalPoint, focalLength } = XR8.Threejs.xrScene()
